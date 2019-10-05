@@ -24,7 +24,7 @@ class Evaluation(models.Model):
         return stage_ids
     
     name =fields.Char('Name',compute='_compute_name')
-    Patient = fields.Many2one('veterinary.Patient', required=True,string='Patient',readonly=True)
+    patient = fields.Many2one('veterinary.patient', required=True,string='patient',readonly=True)
     appointment_id = fields.Many2one('veterinary.appointment',string='Appointment',required=True)
     stage_id = fields.Many2one('veterinary.evaluation.stages',string='Stage',required=True,default=default_stage,group_expand='_read_group_stage_ids')
     user_id = fields.Many2one('res.users', string='Doctor', index=True, track_visibility='onchange', default=lambda self: self.env.user)

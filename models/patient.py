@@ -4,12 +4,12 @@ from odoo import models, fields, api, _
 from ast import literal_eval
 
 class Patient(models.Model):
-    _name = 'veterinary.Patient'
+    _name = 'veterinary.patient'
     image = fields.Binary(
         "Image", attachment=True,
         help="This field holds the image used as image for the product, limited to 1024x1024px.")
-    name = fields.Char('Patient Name', required=True)
-    microchip_number = fields.Char('Microchip Number',required=True)
+    name = fields.Char('patient Name', required=True)
+    seriai_number = fields.Char('ID Number',required=True)
     age = fields.Integer('Age', required=True)
     appointment_id = fields.Many2many('veterinary.appointment')
     total_appointment = fields.Char('Total',compute='_total_appointment')
@@ -17,17 +17,17 @@ class Patient(models.Model):
         (('b','B'),('c','C'), ('g','G') ,('other','Other'))
         ,required=True)
     sex =fields.Selection ((
-        ('f','F'),('m','M'), ('g','G'))
+        ('f','F'),('m','M'))
         ,required=True)
-    bread =fields.Selection ((
+    case =fields.Selection ((
         ('tb','TB'),('ar','AR'),
         ('wb','WB'),('p','P'),('other','Other'))
-        ,required=True,string="Breed & Use")
+        ,required=True,string="Case")
     partner_id = fields.Many2one('res.partner',string='Owner', required=True)
-    evaluation = fields.One2many('veterinary.evaluation','Patient',readonly=True)
+    evaluation = fields.One2many('veterinary.evaluation','patient',readonly=True)
 
     _sql_constraints = [
-    ('microchio_uniq', 'unique(microchip_number)', 'Microchip already exists!')
+    ('microchio_uniq', 'unique(seriai_number)', 'Microchip already exists!')
     ]
 
     @api.multi
@@ -37,16 +37,16 @@ class Patient(models.Model):
     def appointment_view(self):
         action = self.env.ref('veterinary.action_appointment_form')
         result = action.read()[0]
-        result['domain'] = [('Patients', '=', self.id)]
+        result['domain'] = [('patients', '=', self.id)]
         return result
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
     _description = 'Partner'
-    Patient_picking_id = fields.One2many('veterinary.Patient','partner_id', string="Patient Id")
+    patient_picking_id = fields.One2many('veterinary.patient','partner_id', string="patient Id")
 
-    def open_Patient(self):
-        action = self.env.ref('veterinary.action_Patient_form')
+    def open_patient(self):
+        action = self.env.ref('veterinary.action_patient_form')
         result = action.read()[0]
         result['domain'] = [('partner_id', '=', self.id)]
         return result

@@ -1,6 +1,6 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-access_Patient_user,veterinary.Patient user,model_veterinary_Patient,veterinary.group_veterinary_user,1,1,1,0
-access_Patient_manager,veterinary.Patient manager,model_veterinary_Patient,veterinary.group_veterinary_manager,1,1,1,1
+access_patient_user,veterinary.patient user,model_veterinary_patient,veterinary.group_veterinary_user,1,1,1,0
+access_patient_manager,veterinary.patient manager,model_veterinary_patient,veterinary.group_veterinary_manager,1,1,1,1
 access_appointment_user,veterinary.appointment user,model_veterinary_appointment,veterinary.group_veterinary_user,1,1,1,0
 access_appointment_manager,veterinary.appointment manager,model_veterinary_appointment,veterinary.group_veterinary_manager,1,1,1,1
 access_evaluation_user,veterinary.evaluation user,model_veterinary_evaluation,veterinary.group_veterinary_user,1,1,0,0
