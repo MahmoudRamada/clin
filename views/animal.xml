@@ -2,26 +2,26 @@
 <odoo>
     <data>
 
-        <record model="ir.actions.act_window" id="animal_list_action1">
-            <field name="name">Animals</field>
-            <field name="res_model">veterinary.animal</field>
+        <record model="ir.actions.act_window" id="Patient_list_action1">
+            <field name="name">Patients</field>
+            <field name="res_model">veterinary.Patient</field>
             <field name="view_type">form</field>
             <field name="domain">[('partner_id','=','default_partner_id')]</field>
             <field name="context">{'default_partner_id':'partner_id'}</field>
             <field name="view_mode">tree,form,kanban</field>
         </record>
-        <record model="ir.actions.act_window" id="animal_list_action">
-            <field name="name">Animals</field>
-            <field name="res_model">veterinary.animal</field>
+        <record model="ir.actions.act_window" id="Patient_list_action">
+            <field name="name">Patients</field>
+            <field name="res_model">veterinary.Patient</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form,kanban</field>
         </record>
 
-        <record model="ir.ui.view" id="animal_tree_view">
-            <field name="name">veterinary.animal.tree</field>
-            <field name="model">veterinary.animal</field>
+        <record model="ir.ui.view" id="Patient_tree_view">
+            <field name="name">veterinary.Patient.tree</field>
+            <field name="model">veterinary.Patient</field>
             <field name="arch" type="xml">
-                <tree string="Animal Tree">
+                <tree string="Patient Tree">
                     <field name="microchip_number"/>
                     <field name="name"/>
                     <field name="age"/>
@@ -33,11 +33,11 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="animal_form_view">
-            <field name="name">veterinary.animal.form</field>
-            <field name="model">veterinary.animal</field>
+        <record model="ir.ui.view" id="Patient_form_view">
+            <field name="name">veterinary.Patient.form</field>
+            <field name="model">veterinary.Patient</field>
             <field name="arch" type="xml">
-                <form string="Animal Form">
+                <form string="Patient Form">
                     <sheet>
                         <div class="oe_button_box" name="button_box">
                             <button type="object" name="appointment_view" class="oe_stat_button" icon="fa-calendar-check-o">
@@ -76,9 +76,9 @@
                 </form>
             </field>
         </record>
-        <record model="ir.ui.view" id="animal_search_view">
-            <field name="name">veterinary.animal.search</field>
-            <field name="model">veterinary.animal</field>
+        <record model="ir.ui.view" id="Patient_search_view">
+            <field name="name">veterinary.Patient.search</field>
+            <field name="model">veterinary.Patient</field>
             <field name="arch" type="xml">
                 <search>
                     <field name="name"/>
@@ -91,9 +91,9 @@
                 </search>
             </field>
         </record>
-        <record model="ir.ui.view" id="animal_kanban_view">
-            <field name="name">veterinary.animal.kanban</field>
-            <field name="model">veterinary.animal</field>
+        <record model="ir.ui.view" id="Patient_kanban_view">
+            <field name="name">veterinary.Patient.kanban</field>
+            <field name="model">veterinary.Patient</field>
             <field name="arch" type="xml">
                 <kanban>
                     <field name="id"/>
@@ -106,7 +106,7 @@
                             <div class="oe_kanban_global_click o_res_partner_kanban">
                                 <div class="o_kanban_image">
                                     <t t-if="record.image.raw_value">
-                                        <img t-att-src="kanban_image('veterinary.animal', 'image', record.id.raw_value)" class="o_kanban_image oe_kanban_avatar_smallbox"/>
+                                        <img t-att-src="kanban_image('veterinary.Patient', 'image', record.id.raw_value)" class="o_kanban_image oe_kanban_avatar_smallbox"/>
                                     </t>
                                 </div>
                                 <div t-attf-class="oe_kanban_content">
@@ -127,8 +127,8 @@
         </record>
 
 
-        <!-- Animal Onwer -->
-        <record model="ir.ui.view" id="animal_view_buttons">
+        <!-- Patient Onwer -->
+        <record model="ir.ui.view" id="Patient_view_buttons">
             <field name="name">partner.view.buttons</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form" />
@@ -136,9 +136,9 @@
             <!-- <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/> -->
             <field name="arch" type="xml">
                 <div name="button_box" position="inside">
-                    <button type="object" class="oe_stat_button" id="animal_button" icon="fa-paw" name="open_animal" groups="veterinary.group_veterinary_manager" context="{'default_partner_id': active_id}">
+                    <button type="object" class="oe_stat_button" id="Patient_button" icon="fa-paw" name="open_Patient" groups="veterinary.group_veterinary_manager" context="{'default_partner_id': active_id}">
                         <div class="o_form_field o_stat_info">
-                            <span class="o_stat_text">Animals</span>
+                            <span class="o_stat_text">Patients</span>
                         </div>
                     </button>
                 </div>
@@ -147,27 +147,27 @@
         </record>
 
 
-        <record id="action_animal_form" model="ir.actions.act_window">
-            <field name="name">Animals</field>
-            <field name="res_model">veterinary.animal</field>
+        <record id="action_Patient_form" model="ir.actions.act_window">
+            <field name="name">Patients</field>
+            <field name="res_model">veterinary.Patient</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref="animal_search_view"/>
-            <field name="view_id" ref="animal_tree_view"/>
+            <field name="search_view_id" ref="Patient_search_view"/>
+            <field name="view_id" ref="Patient_tree_view"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                 </p>
             </field>
         </record>
 
-        <record id="invocie_animal_page" model="ir.ui.view">
-            <field name="name">res.partner.animal</field>
+        <record id="invocie_Patient_page" model="ir.ui.view">
+            <field name="name">res.partner.Patient</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//form//notebook" position="inside">
-                    <page string="Animal" class="oe_page_Customer Code" groups="veterinary.group_veterinary_manager">
-                        <field name="animal_picking_id"/>
+                    <page string="Patient" class="oe_page_Customer Code" groups="veterinary.group_veterinary_manager">
+                        <field name="Patient_picking_id"/>
                         <!-- <field name="product_code" widget="one2many_list" context="{'show_attribute': False}">
               <tree string="Variants" editable="bottom">
                 <field name="partner_id" domain="[('customer','=',True)]"/>

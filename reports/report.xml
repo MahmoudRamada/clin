@@ -11,14 +11,14 @@
             <span t-field="doc.appointment_id"/><br/>
             <strong>Stage:</strong>
             <span t-field="doc.stage_id"/><br/>
-            <strong>Animal:</strong>
-            <span t-field="doc.animal"/>
-            <strong>NO: </strong> <span t-field="doc.animal.microchip_number"/>
-            <strong>Sex: </strong> <span t-field="doc.animal.sex"/>
-            <strong>Age: </strong> <span t-field="doc.animal.age"/>
-            <strong>Bread and Use: </strong> <span t-field="doc.animal.bread"/>
-            <strong>Colour: </strong> <span t-field="doc.animal.colour"/>
-            <strong>Owner: </strong> <span t-field="doc.animal.partner_id"/>
+            <strong>Patient:</strong>
+            <span t-field="doc.Patient"/>
+            <strong>NO: </strong> <span t-field="doc.Patient.microchip_number"/>
+            <strong>Sex: </strong> <span t-field="doc.Patient.sex"/>
+            <strong>Age: </strong> <span t-field="doc.Patient.age"/>
+            <strong>Bread and Use: </strong> <span t-field="doc.Patient.bread"/>
+            <strong>Colour: </strong> <span t-field="doc.Patient.colour"/>
+            <strong>Owner: </strong> <span t-field="doc.Patient.partner_id"/>
             <br/>
             
             <table class="table table-condensed mt0" >

@@ -21,7 +21,7 @@
         'views/seq.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
-        'views/animal.xml',
+        'views/Patient.xml',
         'wizard/mail_compose_message_view.xml',
         'wizard/canelreason.xml',
         'views/appointment.xml',

@@ -20,8 +20,8 @@ class Appointment(models.Model):
     description = fields.Char('Description')
     partner_id = fields.Many2one('res.partner',string='Owner',required=True)
     dateOfAppointment = fields.Datetime('Date of Appointment',required=True)
-    animals = fields.Many2many('veterinary.animal',string='Animals')
-    animal_id = fields.Many2one('veterinary.animal')
+    Patients = fields.Many2many('veterinary.Patient',string='Patients')
+    Patient_id = fields.Many2one('veterinary.Patient')
     user_id = fields.Many2one('res.users', string='Doctor',required=True,track_visibility='onchange',default=lambda self: self.env.user)
     cancel_reason = fields.Text('Reason of cancellation')
     invoice_ids = fields.One2many('account.invoice','appointment_id', string="Appointment Id")
@@ -67,9 +67,9 @@ class Appointment(models.Model):
     @api.one
     def action_confirm(self):
         self.state = 'confirm'
-        for animal in self.animals:
+        for Patient in self.Patients:
             pick = {
-            'animal': animal.id,
+            'Patient': Patient.id,
             'appointment_id': self.id,
             'partner_id': self.partner_id.id,
             }

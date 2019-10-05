@@ -14,7 +14,7 @@
             <field name="model">veterinary.evaluation</field>
             <field name="arch" type="xml">
                 <tree string="Evaluation Tree" create="false">
-                    <field name="animal"/>
+                    <field name="Patient"/>
                     <field name="appointment_id"/>
                 </tree>
             </field>
@@ -31,7 +31,7 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name="animal"/>
+                                <field name="Patient"/>
                                 <field name="stage_id"/>
                                 <field name="partner_id" domain="[('customer', '=' ,True)]"/>
                             </group>
@@ -152,7 +152,7 @@
             <field name="arch" type="xml">
                 <kanban default_group_by="stage_id" class="o_kanban_small_column" create="false">
                     <field name="appointment_id"/>
-                    <field name="animal"/>
+                    <field name="Patient"/>
                     <field name="partner_id"/>
                     <field name="stage_id"/>
                     <templates>
@@ -188,7 +188,7 @@
                                     </div>
                                     <div>
                                         <strong>
-                                            <field name="animal"/>
+                                            <field name="Patient"/>
                                         </strong>
                                     </div>
                                 </div>
@@ -205,7 +205,7 @@
             <field name="arch" type="xml">
                 <search>
                     <group string="Group By">
-                        <filter name="group_by_animal" string="Animal" context="{'group_by': 'animal'}"/>
+                        <filter name="group_by_Patient" string="Patient" context="{'group_by': 'Patient'}"/>
                         <filter name="group_by_name" string="Appointment" context="{'group_by': 'appointment_id'}"/>
                     </group>
                 </search>
