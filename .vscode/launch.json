@@ -1,0 +1,19 @@
+
+{
+    "version": "0.2.0",
+    "configurations": [
+    
+    
+            {
+                "name": "Odoo12",
+                "type": "python",
+                "request": "launch",
+                "program": "/Users/mahmoudramadan/odoo/odoo-bin",
+                
+                
+         
+            }
+    
+        ]
+ }
+    
