@@ -1,17 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Veterinary Clinic",
+    'name': " Clinic",
 
     'summary': """
-        EquiClinic 
-    """,
-    'description': """
-        EquiClinic
-    """,
+        Mallgates  """,
 
-    'author': "Bilal",
+    'author': "Mahmoud",
     'category': 'Clinic',
-    'version': '1.11.1',
+    'description': """ clinci admin App """,
 
     # any module necessary for this one to work correctly
     'depends': ['account_invoicing','base','mail','document'],

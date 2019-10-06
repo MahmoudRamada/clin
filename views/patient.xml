@@ -68,7 +68,7 @@
                             </group>
                         </group>
                         <notebook>
-                            <page string="Veterinary Evaluation">
+                            <page string=" Evaluation">
                                 <field name="evaluation"/>
                             </page>
                         </notebook>
